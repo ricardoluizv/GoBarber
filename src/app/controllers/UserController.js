@@ -62,13 +62,13 @@ class UserController {
       return res.status(400).json({ error: 'User no already exists.' });
     }
 
-    // if (email !== user.email) {
-    //   const userExists = await User.findOne({ where: { email } });
+    if (email !== user.email) {
+      const userExists = await User.findOne({ where: { email } });
 
-    //   if (!userExists) {
-    //     return res.status(400).json({ error: 'User no already exists.' });
-    //   }
-    // }
+      if (!userExists) {
+        return res.status(400).json({ error: 'User no already exists.' });
+      }
+    }
 
     if (!(await user.checkPassword(oldPassword))) {
       return res.status(401).json({ error: 'Password does not match' });

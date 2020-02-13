@@ -30,7 +30,7 @@ class ScheduleController {
     });
 
     return res.json(appointments);
-}
+  }
 }
 
 export default new ScheduleController();
